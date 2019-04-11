@@ -7,8 +7,8 @@ class Customer {
     this.drunkennessLevel = drunkennessLevel;
   }
 
-  buyDrink() {
-
+  payCash(amount) {
+    this.wallet -= amount;
   }
 }
 

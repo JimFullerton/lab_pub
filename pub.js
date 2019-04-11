@@ -6,8 +6,8 @@ class Pub {
     this.drinks = drinks;
   }
 
-  sellDrink() {
-
+  takeCash(amount) {
+    this.till += amount;
   }
 
 }

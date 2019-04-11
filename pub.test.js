@@ -68,6 +68,16 @@ describe('Pub', () => {
     expect(drink2.alcoholLevel).toBe(3);
   });
 
+  test('customer can buy drink', () => {
+    customer1.payCash(5);
+    expect(customer1.wallet).toBe(45);
+  });
+
+  test('pub can sell drink', () => {
+    pub.takeCash(5);
+    expect(pub.till).toBe(205);
+  });
+
 
 
 });
