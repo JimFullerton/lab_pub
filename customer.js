@@ -10,6 +10,10 @@ class Customer {
   payCash(amount) {
     this.wallet -= amount;
   }
+
+  getDrunker(alcoholLevel) {
+    this.drunkennessLevel += alcoholLevel;
+  }
 }
 
 module.exports = Customer;

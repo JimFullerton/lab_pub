@@ -78,6 +78,28 @@ describe('Pub', () => {
     expect(pub.till).toBe(205);
   });
 
+  test('pub can check customers age for underage', () => {
+    expect(pub.checkAge(customer3)).toBe(false);
+  });
+
+  test('pub can check customers age for over 18', () => {
+    expect(pub.checkAge(customer1)).toBe(true);
+  });
+
+  test('customer can get drunker', () => {
+    customer1.getDrunker(3);
+    expect(customer1.drunkennessLevel).toBe(3);
+  });
+
+  test('pub can check customers drunkenness for sober', () => {
+    expect(pub.checkDrunken(customer2)).toBe(false);
+  });
+
+  test('pub can check customers drunkenness for drunk', () => {
+    customer2.getDrunker(10);
+    expect(pub.checkDrunken(customer2)).toBe(true);
+  });
+
 
 
 });
