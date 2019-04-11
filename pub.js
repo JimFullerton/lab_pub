@@ -3,11 +3,11 @@ class Pub {
   constructor(name, till, drinks) {
     this.name = name;
     this.till = till;
-    this.drinks = [];
+    this.drinks = drinks;
   }
 
   sellDrink() {
-    
+
   }
 
 }

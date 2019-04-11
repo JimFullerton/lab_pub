@@ -32,5 +32,12 @@ describe('Pub', () => {
     expect(pub.name).toBe("Oxford");
   });
 
+  test('pub should have a till', () => {
+    expect(pub.till).toBe(200);
+  });
+  test('pub should have drink', () => {
+    expect(pub.drinks).toBe(drinks);
+  });
+
 
 });
