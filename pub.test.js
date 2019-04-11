@@ -56,6 +56,18 @@ describe('Pub', () => {
     expect(customer2.drunkennessLevel).toBe(5);
   });
 
+  test('drink #1 should have a name', () => {
+    expect(drink1.name).toBe("Beer");
+  });
+
+  test('drink #4 should have a cost', () => {
+    expect(drink4.price).toBe(5.5);
+  });
+
+  test('drink #2 should have a level of alcohol', () => {
+    expect(drink2.alcoholLevel).toBe(3);
+  });
+
 
 
 });
