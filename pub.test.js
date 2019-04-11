@@ -1,6 +1,7 @@
 const Pub = require('./pub')
 const Drink = require('./drink')
 const Customer = require('./customer')
+const Transaction = require('./transaction')
 
 describe('Pub', () => {
 
@@ -14,6 +15,7 @@ describe('Pub', () => {
   let customer1;
   let customer2;
   let customer3;
+  let transact1;
 
   beforeEach(() => {
     drink1 = new Drink('Beer', 4, 2);
@@ -26,6 +28,7 @@ describe('Pub', () => {
     customer1 = new Customer("Alice", 50, 27, 0);
     customer2 = new Customer("Bob", 100, 37, 5);
     customer3 = new Customer("Junior", 15, 17, 0);
+    transact1 = new Transaction(pub, customer1, 'Wine');
   });
 
   test('pub should have a name', () => {
@@ -92,12 +95,19 @@ describe('Pub', () => {
   });
 
   test('pub can check customers drunkenness for sober', () => {
-    expect(pub.checkDrunken(customer2)).toBe(false);
+    expect(pub.checkDrunken(customer2)).toBe(true);
   });
 
   test('pub can check customers drunkenness for drunk', () => {
     customer2.getDrunker(10);
-    expect(pub.checkDrunken(customer2)).toBe(true);
+    expect(pub.checkDrunken(customer2)).toBe(false);
+  });
+
+  test('simple full transaction', () => {
+    transact1.buySellDrink();
+    expect(customer1.drunkennessLevel).toBe(3);
+    expect(customer1.wallet).toBe(45);
+    expect(pub.till).toBe(205);
   });
 
 

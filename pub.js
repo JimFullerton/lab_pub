@@ -19,7 +19,7 @@ class Pub {
   }
 
   checkDrunken(customer) {
-    if (customer.drunkennessLevel >= 10) {
+    if (customer.drunkennessLevel < 10) {
       return true;
     } else {
       return false;
