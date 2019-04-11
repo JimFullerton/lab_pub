@@ -16,6 +16,8 @@ describe('Pub', () => {
   let customer2;
   let customer3;
   let transact1;
+  let transact2;
+  let transact3;
 
   beforeEach(() => {
     drink1 = new Drink('Beer', 4, 2);
@@ -29,6 +31,8 @@ describe('Pub', () => {
     customer2 = new Customer("Bob", 100, 37, 5);
     customer3 = new Customer("Junior", 15, 17, 0);
     transact1 = new Transaction(pub, customer1, 'Wine');
+    transact2 = new Transaction(pub, customer3, 'Whisky');
+    transact3 = new Transaction(pub, customer1, 'Gin');
   });
 
   test('pub should have a name', () => {
@@ -108,6 +112,21 @@ describe('Pub', () => {
     expect(customer1.drunkennessLevel).toBe(3);
     expect(customer1.wallet).toBe(45);
     expect(pub.till).toBe(205);
+  });
+
+  test('attempted underage full transaction', () => {
+    transact2.buySellDrink();
+    expect(customer3.drunkennessLevel).toBe(0);
+    expect(customer3.wallet).toBe(15);
+    expect(pub.till).toBe(200);
+  });
+
+  test('attempted drunken full transaction', () => {
+    customer1.getDrunker(11);
+    transact3.buySellDrink();
+    expect(customer1.drunkennessLevel).toBe(11);
+    expect(customer1.wallet).toBe(50);
+    expect(pub.till).toBe(200);
   });
 
 
