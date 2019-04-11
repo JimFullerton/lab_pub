@@ -35,9 +35,27 @@ describe('Pub', () => {
   test('pub should have a till', () => {
     expect(pub.till).toBe(200);
   });
+
   test('pub should have drink', () => {
     expect(pub.drinks).toBe(drinks);
   });
+
+  test('customer #1 should have a name', () => {
+    expect(customer1.name).toBe("Alice");
+  });
+
+  test('customer #2 should have a wallet', () => {
+    expect(customer2.wallet).toBe(100);
+  });
+
+  test('customer #3 should have an age', () => {
+    expect(customer3.age).toBe(17);
+  });
+
+  test('customer #2 should be pre-drunk', () => {
+    expect(customer2.drunkennessLevel).toBe(5);
+  });
+
 
 
 });
